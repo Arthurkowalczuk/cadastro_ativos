@@ -1,0 +1,83 @@
+ /* Reset de margin e padding */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+  }
+  
+  .menu {
+    position: fixed;
+    left: -250px; /* Inicialmente escondido */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease;
+    z-index: 100;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 20px;
+  }
+  
+  .menu ul li {
+    margin-bottom: 15px;
+  }
+  
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+  }
+  
+  .menu ul li a:hover {
+    background-color: #575757;
+  }
+  
+  .content {
+    margin-left: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-top: 10px;
+  }
+  
+  form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #218838;
+  }
+  
+  /* Menu Lateral visível */
+  .menu.open {
+    left: 0;
+  }
