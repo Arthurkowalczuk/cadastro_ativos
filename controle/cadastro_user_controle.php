@@ -29,7 +29,7 @@ $query = "
  
 $result = mysqli_query($conexao,$query) or die(false);
 
-echo $nome. "<br>". $sobrenome."<br>" .$cript. "<br>" .$usuario. "<br>". $turma;  
+
 if($result){
     echo "<script> alert('Usuario cadastrado');
         window.location.href = '../visao/login.cadastro.php';

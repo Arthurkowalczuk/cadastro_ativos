@@ -81,3 +81,19 @@
   .menu.open {
     left: 0;
   }
+  
+  
+  
+  
+  
+  
+  #ativ.show {
+    display: block;
+    opacity: 1;
+  }
+  
+  .men ul {
+    display: none; /* O menu começa oculto */
+  }
+  
+ 

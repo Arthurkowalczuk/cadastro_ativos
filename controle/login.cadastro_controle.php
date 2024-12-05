@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once('../modelo/conexao.php');
 include_once('../controle/funcoes.php');
 $senha = $_POST['senha'];
@@ -7,7 +8,8 @@ $usuario = $_POST['user'];
 $senhaCrip = base64_encode($senha);
 
 echo $sql = " Select
-             count(*) as quantidades
+             count(*) as quantidades,
+             idUsuario
               from
                usuario
                 where
@@ -15,16 +17,20 @@ echo $sql = " Select
                   and senhaUsuario = '$senhaCrip' ";
 
 $result = mysqli_query($conexao, $sql) or die(false);
-$dados = $result->fetch_all(MYSQLI_ASSOC);
+$dados = $result->fetch_assoc();
 var_dump($dados);
-if($dados[0]>0){
+if($dados['quantidades']>0){
    
-    echo "<script> alert('login permitido');
-        //window.location.href = '../visao/ativos.php';
-</script>";
+   $_SESSION['login_ok'] = true;
+   $_SESSION['controle_login'] = true;
+   $_SESSION['id_user'] = $dados['idUsuario'];
+   header('location:../visao/sobre.php');
+   
 
 }else{
-    echo 'senha ou usuario invalido';
+    $_SESSION['login_ok'] = false;
+  unset( $_SESSION['controle_login'] );
+  header('location:../visao/login.cadastro.php?error_autentic=s');
 }
 
 ?>
